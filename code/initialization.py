@@ -1,5 +1,12 @@
+import random
+
 def generateOutputTime(studenti: list):
-    return "AB"
+    time = ""
+    for i in studenti:
+        value = random.uniform(0, 1)
+        value = i if value > 0.5 else ''
+        time += value
+    return time
 
 def generateOutputStudyroom(studenti: list, timeSlot):
     output = ""

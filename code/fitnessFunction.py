@@ -3,7 +3,7 @@ def fitnessQuantita(gene: str, quantita: list, studenti: list): #range [0, 1]
     for j in range(len(studenti)):
         i = 0
         for c in gene:
-            if c == studenti[i]:
+            if c == studenti[j]:
                 i+=1
         output += i-int(quantita[j]) if int(quantita[j]) > i else int(quantita[j]) - i
     if output < 0:
