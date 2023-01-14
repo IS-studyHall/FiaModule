@@ -12,7 +12,7 @@ sizePopulation = 4
 numberStudyroom = 3
 fileName = 'dataset.csv'
 giorni = ['Lunedi','Martedi','Mercoledi','Giovedi','Venerdi']
-maxExecutionTime = 5 * 60 #* 48 * 60 
+maxExecutionTime = 60 #* 48 * 60 
 
 def formattedTime(time, students):
     diff = len(students) - len(time)
@@ -64,8 +64,12 @@ def main():
     students, quantity, timeSlots = readFileAndFormatInput(fileName)
     population = []
     population = generatePopulation(students, sizePopulation, timeSlot, numberStudyroom)
-    printTableOutput(population[0], students)
-    print('fasce orarie:', fitnessFasceOrarie(population[0], timeSlots, students, numberStudyroom), 'quantita:', fitnessQuantita(population[0], quantity, students))
+    for gene in population:
+        print('gene')
+        printTableOutput(gene, students)
+        print('fasce orarie:', fitnessFasceOrarie(gene, timeSlots, students, numberStudyroom), 'quantita:', fitnessQuantita(gene, quantity, students))
+        print('\n\n')
+    print('\n\n\n')
     while True:
         resultsFitnessQuantita = []
         resultsFitnessFasceOrarie = []
@@ -78,8 +82,12 @@ def main():
         end_time = time.time()
         if end_time - start_time > maxExecutionTime:
             break
-    printTableOutput(population[0], students)
-    print('fasce orarie:', fitnessFasceOrarie(population[i], timeSlots, students, numberStudyroom), 'quantita:', fitnessQuantita(population[i], quantity, students))
+    for gene in population:
+        print('gene')
+        printTableOutput(gene, students)
+        print('fasce orarie:', fitnessFasceOrarie(gene, timeSlots, students, numberStudyroom), 'quantita:', fitnessQuantita(gene, quantity, students))
+        print('\n\n')
+
 if __name__ == '__main__':
     main()
 

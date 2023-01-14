@@ -25,12 +25,14 @@ def fitnessFasceOrarie(gene: str, fasceStudenti: list, studenti: list, studyroom
             for j in range(len(studyroomList)):
                 if studenti[k] in studyroomList[j][i]:
                     count += 1
-            if count == 1 and fasceStudenti[k][i] == 1:
+            if (count == 1 and fasceStudenti[k][i] == 1):
                 output += 5
+            elif count == 0 and fasceStudenti[k][i] == 0:
+                output += 3
             elif count == 1 and fasceStudenti[k][i] == 0:
                 output += 1
             elif fasceStudenti[k][i] == 1 and count == 0:
-                output += 3
+                output += 2
             elif output - count > 0:
                 output -= count
     return output
