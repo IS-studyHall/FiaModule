@@ -2,12 +2,14 @@ import csv
 import copy
 from initialization import generatePopulation
 from fitnessFunction import fitnessQuantita, fitnessFasceOrarie
-from crossoverAlgorithm import singlePoint
+from crossover import singlePoint, twoPoint
 from selection import rouletteWheelSelection
+
 timeSlot = 20
 sizePopulation = 4
 numberStudyroom = 3
 fileName = 'dataset.csv'
+
 def readFileAndFormatInput(filename):
     students = []
     quantity = []
@@ -36,7 +38,8 @@ def main():
         resultsFitnessQuantita.append(fitnessQuantita(population[i], quantity, students))
         resultsFitnessFasceOrarie.append(fitnessFasceOrarie(population[i], timeSlots, students, numberStudyroom))
     newPopulation = rouletteWheelSelection(resultsFitnessFasceOrarie, resultsFitnessQuantita, population)
-    print(newPopulation)
+    newPopulation = twoPoint(newPopulation)
+    #print(singlePoint(newPopulation))
 if __name__ == '__main__':
     main()
 
