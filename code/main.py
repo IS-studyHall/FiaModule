@@ -7,12 +7,12 @@ from crossoverAlgorithm import singlePoint
 timeSlot = 20
 sizePopulation = 4
 numberStudyroom = 3
-
-def readFileAndFormatInput():
+fileName = 'dataset.csv'
+def readFileAndFormatInput(filename):
     students = []
     quantity = []
     timeSlots = []
-    with open('dataset.csv', newline='') as csvfile:
+    with open(filename, newline='') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
         i = 0
         for row in spamreader:
@@ -28,11 +28,11 @@ def readFileAndFormatInput():
     return students, quantity, timeSlots
 
 def main():
-    students, quantity, timeSlots = readFileAndFormatInput()
+    students, quantity, timeSlots = readFileAndFormatInput(fileName)
     population = generatePopulation(students, sizePopulation, timeSlot, numberStudyroom)
     quantita = fitnessQuantita(population[0], quantity[0], students[0])
     result = fitnessFasceOrarie(population[0], timeSlots[0], students[0], numberStudyroom)
-
+    print(result)
 if __name__ == '__main__':
     main()
 

@@ -21,5 +21,5 @@ def fitnessFasceOrarie(gene: str, fasceStudente, studente: str, studyroom: int):
             output += 1
         else:
             output -= count
-    return count
+    return output
 
