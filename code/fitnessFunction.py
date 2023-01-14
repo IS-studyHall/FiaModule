@@ -18,7 +18,7 @@ def fitnessFasceOrarie(gene: str, fasceStudenti: list, studenti: list, studyroom
     studyroomList = []
     n = int(len(separateGene) / studyroom)
     for i in range(studyroom):
-        studyroomList.append(separateGene[i*n: (i+1)*n + 1])
+        studyroomList.append(separateGene[i*n: (i+1)*n])
     for k in range(len(studenti)):
         for i in range(len(studyroomList[0])):
             count = 0
@@ -26,7 +26,11 @@ def fitnessFasceOrarie(gene: str, fasceStudenti: list, studenti: list, studyroom
                 if studenti[k] in studyroomList[j][i]:
                     count += 1
             if count == 1 and fasceStudenti[k][i] == 1:
+                output += 5
+            elif count == 1 and fasceStudenti[k][i] == 0:
                 output += 1
+            elif fasceStudenti[k][i] == 1 and count == 0:
+                output += 3
             elif output - count > 0:
                 output -= count
     return output

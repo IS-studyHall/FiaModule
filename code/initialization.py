@@ -12,13 +12,13 @@ def generateOutputStudyroom(studenti: list, timeSlot):
     output = ""
     for i in range(timeSlot):
         output+=generateOutputTime(studenti)+","
-    return output[0:len(output)-1]
+    return output
 
 def generateGene(studenti: list, numberStudyroom, timeSlot):
     output = ""
     for i in range(numberStudyroom):
         output+=generateOutputStudyroom(studenti, timeSlot)
-    return output
+    return output[0:len(output)-1]
 
 def generatePopulation(studenti: list, sizePopulation: int, timeSlot: int, numberStudyroom: int):
     output = []
