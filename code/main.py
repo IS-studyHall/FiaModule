@@ -2,19 +2,26 @@ import csv
 from initialization import generatePopulation
 from fitnessFunction import funzioneQuantita
 
-studenti = []
-quantita = []
-with open('dataset.csv', newline='') as csvfile:
+students = []
+quantity = []
+timeSlots = []
+with open('code\dataset.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     i = 0
+    stringa = ""
     for row in spamreader:
         if i > 0:
-            studenti.append(row[0])
-            quantita.append(row[len(row) - 1])
+            students.append(row[0])
+            stringa = row[0] + row[1] + row[2] + row[3] + row[4] + row[5]
+            quantity.append(row[len(row) - 1])
         i+=1
-    print(quantita)
-    population = generatePopulation(studenti)
-    print(funzioneQuantita(population[0], quantita[0], studenti[0]))
+        timeSlots.append(stringa)
+    print(quantity)
+    print(students)
+    population = generatePopulation(students)
+    print(timeSlots)
+    print(funzioneQuantita(population[0], quantity[0], students[0]))
+    #print(funzioneFasceOraria(population[1], timeSlots, ))
 
     
 
