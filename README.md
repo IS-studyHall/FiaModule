@@ -1,9 +1,9 @@
 # FiaModule
 
-OBIETTIVO DEL PROGETTO
+OBIETTIVO DEL PROGETTO: 
 L'obiettivo del progetto è quello di semplificare la prenotazione, tramite l’applicativo StudyHall, di un posto nelle aule studio dell'università degli studi di Salerno dando la possibilità agli studenti di indicare in quali giorni e in quali fasce orarie si offre disponibilità e quante ore settimanali si intendono dedicare allo studio, questo in modo tale da poter definire un'ottima assegnazione dei posti nelle aule.
 
-RISORSE CONTENUTE NEL REPOSITORY
+RISORSE CONTENUTE NEL REPOSITORY: 
 La directory “Documentation” contiene il documento della progettazione del modulo di IA di Study Hall.
 La directory “Code” contiene il csv (dataset) e i vari algoritmi implementati:
 crossover.py
@@ -14,7 +14,7 @@ selection.py
 main.py
 dataset.csv
 
-COME REPLICARE IL LAVORO SVOLTO
+COME REPLICARE IL LAVORO SVOLTO: 
 Modificare a piacimento le variabili contenute nel main:
 timeSlot
 sizePopulation 
