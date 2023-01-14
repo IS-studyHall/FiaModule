@@ -24,6 +24,6 @@ giorni[]
 maxExecutionTime
 Modificare printTableOut come meglio si vuole formattare l’output. 
 Libreria Numpy per Python 3.
-Python.
+Python3.
 
 
