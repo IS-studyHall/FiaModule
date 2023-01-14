@@ -20,4 +20,4 @@ def funzioneFasceOrarie(gene: str, fasceStudente, studente: str):
                     corrette+=1
                 else:
                     errate+=1
-    
+    return corrette, errate

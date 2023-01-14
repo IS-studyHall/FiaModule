@@ -1,6 +1,7 @@
 import csv
 from initialization import generatePopulation
 from fitnessFunction import funzioneQuantita
+from crossoverAlgorithm import singlePoint
 
 students = []
 quantity = []
@@ -22,6 +23,7 @@ with open('code\dataset.csv', newline='') as csvfile:
     print(timeSlots)
     print(funzioneQuantita(population[0], quantity[0], students[0]))
     #print(funzioneFasceOraria(population[1], timeSlots, ))
+    singlePoint(",", "single")
 
     
 
