@@ -9,8 +9,6 @@ def generateOutputStudyroom(studenti: list):
     output = ""
     for i in range(timeSlot):
         output+=generateOutputTime(studenti)+","
-    print(len(output))
-    
     return output[0:len(output)-1]
 
 def generateGene(studenti: list):
