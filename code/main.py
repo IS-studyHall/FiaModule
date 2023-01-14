@@ -4,6 +4,7 @@ from initialization import generatePopulation
 from fitnessFunction import fitnessQuantita, fitnessFasceOrarie
 from crossover import singlePoint, twoPoint
 from selection import rouletteWheelSelection
+from mutation import inversion
 
 timeSlot = 20
 sizePopulation = 4
@@ -39,7 +40,8 @@ def main():
         resultsFitnessFasceOrarie.append(fitnessFasceOrarie(population[i], timeSlots, students, numberStudyroom))
     newPopulation = rouletteWheelSelection(resultsFitnessFasceOrarie, resultsFitnessQuantita, population)
     newPopulation = twoPoint(newPopulation)
-    #print(singlePoint(newPopulation))
+    newPopulation = inversion(newPopulation)
+    print(newPopulation)
 if __name__ == '__main__':
     main()
 
