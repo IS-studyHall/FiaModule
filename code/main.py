@@ -3,7 +3,7 @@ import copy
 from initialization import generatePopulation
 from fitnessFunction import fitnessQuantita, fitnessFasceOrarie
 from crossoverAlgorithm import singlePoint
-
+from selection import rouletteWheelSelection
 timeSlot = 20
 sizePopulation = 4
 numberStudyroom = 3
@@ -30,9 +30,13 @@ def readFileAndFormatInput(filename):
 def main():
     students, quantity, timeSlots = readFileAndFormatInput(fileName)
     population = generatePopulation(students, sizePopulation, timeSlot, numberStudyroom)
-    quantita = fitnessQuantita(population[0], quantity[0], students[0])
-    result = fitnessFasceOrarie(population[0], timeSlots[0], students[0], numberStudyroom)
-    print(result)
+    resultsFitnessQuantita = []
+    resultsFitnessFasceOrarie = []
+    for i in range(len(population)):
+        resultsFitnessQuantita.append(fitnessQuantita(population[i], quantity, students))
+        resultsFitnessFasceOrarie.append(fitnessFasceOrarie(population[i], timeSlots, students, numberStudyroom))
+    newPopulation = rouletteWheelSelection(resultsFitnessFasceOrarie, resultsFitnessQuantita, population)
+    print(newPopulation)
 if __name__ == '__main__':
     main()
 
